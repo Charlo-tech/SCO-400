@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buddy Counselling Services</title>
+</head>
+<body>
+
+<h1>Buddy Counselling Services</h1>
+
+<hr>
+
+<h2>System Report as of {% now "jS F Y H:i" %}</h2>
+
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+    <tr>
+        <th>Total Appointments:</th>
+        <th>Pending Appointments</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>{{ app_total }}</td>
+            <td>{{ pending_app_total }}</td>
+        </tr>
+    </tbody>
+</table>
+<div></div>
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Student</th>
+        <th>Course Name</th>
+        <th>Student Address</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+
+
+    <tbody>
+    {% for c in cust %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.first_name }} {{ c.last_name }}
+            </td>
+        <td>{{ c.course_name }}</td>
+        <td>{{ c.student_address }}</td>
+            {% if c.status is True %}
+                <td><b>Approved</b></td>
+            {% elif  c.status is False %}
+                <td style="background-color: lightyellow">Pending</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Open the terminal and navigate to this project folder.
+Create a virtual environment by running the command python -m venv Virtual
+activate the environment by running Scripts/virtual/activate.
+Run pip install requirements.txt to install all dependencies into the virtual environment.
+Once done, cd into buddy and run python manage.py make migrations to initiate the database then run python manage.py migrate to effect the database migrations
+run python manage.py runserver to view the live deployed web app on localhost
